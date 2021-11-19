@@ -1,6 +1,6 @@
 "use strict"
 
-$('.w').click(() => {
+$('.drum').click(() => {
 	alert("I got clicked");
 })
 
