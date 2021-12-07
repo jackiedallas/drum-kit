@@ -42,16 +42,26 @@ function makeSound(char) {
 	
 }
 
+// button animation function
+function btnAnimate(char) {
+	let currentBtn = document.querySelector("." + char);
+	currentBtn.classList.add("pressed");
+	setTimeout(function () {
+		currentBtn.classList.remove("pressed")
+	}, 100)
+}
+
 // looping through drum buttons and adding click event listener
 for (let i = 0; i < numOfDrums; i++) {
 	document.querySelectorAll('.drum')[i].addEventListener('click', (function () {
-		// this.style.color = "white";
 		let buttonInnerHTML = this.innerHTML;
 		makeSound(buttonInnerHTML)
+		btnAnimate(buttonInnerHTML)
 	}))
 }
 
 // event listener for keyboard press
 document.addEventListener("keydown", function (e) {
 	makeSound(e.key)
+	btnAnimate(e.key)
 })
