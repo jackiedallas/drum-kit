@@ -1,6 +1,9 @@
 "use strict"
 
+// stored the length of drums in variable to iterate through for click event listener
 let numOfDrums = document.querySelectorAll('.drum').length;
+
+// stored sounds in variables
 let tom1Drum = new Audio("sounds/tom-1.mp3")
 let crash = new Audio("sounds/crash.mp3")
 let kickBass = new Audio("sounds/kick-bass.mp3")
@@ -9,6 +12,7 @@ let tom2 = new Audio("sounds/tom-2.mp3")
 let tom3 = new Audio("sounds/tom-3.mp3")
 let tom4 = new Audio("sounds/tom-4.mp3")
 
+// Function to check for innerHTML and keyboard event
 function makeSound(char) {
 	switch (char) {
 		case "w":
@@ -38,6 +42,7 @@ function makeSound(char) {
 	
 }
 
+// looping through drum buttons and adding click event listener
 for (let i = 0; i < numOfDrums; i++) {
 	document.querySelectorAll('.drum')[i].addEventListener('click', (function () {
 		// this.style.color = "white";
@@ -46,6 +51,7 @@ for (let i = 0; i < numOfDrums; i++) {
 	}))
 }
 
+// event listener for keyboard press
 document.addEventListener("keydown", function (e) {
 	makeSound(e.key)
 })
